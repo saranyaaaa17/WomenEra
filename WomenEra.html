@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety & Empowerment App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+        }
+        .container {
+            max-width: 1200px;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 sm:p-6 lg:p-8">
+
+    <!-- Header -->
+    <header class="w-full bg-white shadow-lg rounded-2xl p-4 mb-8 flex flex-col sm:flex-row justify-between items-center max-w-4xl">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 sm:mb-0">Women Safety & Empowerment</h1>
+        <nav class="flex space-x-4">
+            <button onclick="showSection('safety')" class="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold rounded-full shadow-md hover:from-red-600 hover:to-pink-600 transition-all duration-300">Safety Zone</button>
+            <button onclick="showSection('wellness')" class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold rounded-full shadow-md hover:from-green-600 hover:to-teal-600 transition-all duration-300">Wellness Hub</button>
+            <button onclick="showSection('community')" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full shadow-md hover:from-purple-600 hover:to-indigo-600 transition-all duration-300">Community & Career</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6 sm:p-8 lg:p-10 flex-grow">
+
+        <!-- Safety Zone (Phase 1) -->
+        <section id="safety-zone" class="mb-10 p-6 bg-red-50 rounded-xl shadow-inner-lg transition-opacity duration-500 opacity-100 block">
+            <h2 class="text-3xl font-bold text-red-700 mb-6 text-center">Phase 1: Safety Zone <i class="fas fa-shield-alt ml-2"></i></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- SOS Button -->
+                <div class="flex flex-col items-center bg-red-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-exclamation-triangle text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">SOS Emergency Alert</h3>
+                    <p class="text-gray-600 text-center mb-4">Quickly send an alert to your emergency contacts.</p>
+                    <button id="sosButton" class="w-full py-3 px-6 bg-red-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-bell mr-2"></i> Send SOS
+                    </button>
+                    <p class="text-sm text-red-500 mt-2 text-center">
+                        <strong class="font-bold">Note:</strong> Actual SMS/call functionality requires native mobile app permissions and a backend. This is a UI demonstration.
+                    </p>
+                </div>
+
+                <!-- Live Location Sharing -->
+                <div class="flex flex-col items-center bg-red-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-map-marker-alt text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Live Location Sharing</h3>
+                    <p class="text-gray-600 text-center mb-4">Share your real-time location with trusted contacts.</p>
+                    <button id="locationShareButton" class="w-full py-3 px-6 bg-red-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-share-alt mr-2"></i> Share Location
+                    </button>
+                    <p class="text-sm text-red-500 mt-2 text-center">
+                        <strong class="font-bold">Note:</strong> Live location sharing requires user permission and network connectivity. This is a UI demonstration.
+                    </p>
+                </div>
+
+                <!-- SonicSafe (Voice Recognition) -->
+                <div class="md:col-span-2 flex flex-col items-center bg-red-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-microphone-alt text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">SonicSafe: Voice Alert</h3>
+                    <p class="text-gray-600 text-center mb-4">Activate an alert by speaking a keyword (e.g., "help", "emergency").</p>
+                    <button id="sonicSafeButton" class="w-full md:w-auto py-3 px-8 bg-purple-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105 mb-4">
+                        <i class="fas fa-headset mr-2"></i> Start Listening
+                    </button>
+                    <div id="recognitionStatus" class="text-red-700 font-semibold mb-3"></div>
+                    <div id="sonicSafeOutput" class="w-full bg-white p-4 rounded-lg border border-gray-300 text-gray-700 text-sm italic min-h-[60px] flex items-center justify-center text-center">
+                        Speak "help" or "emergency" to trigger a simulated alert.
+                    </div>
+                    <p class="text-sm text-red-500 mt-4 text-center">
+                        <strong class="font-bold">Crucial Note on SonicSafe Offline/Bluetooth:</strong> Direct offline messaging via Bluetooth from a web app is NOT possible due to browser security restrictions. Voice recognition here uses the browser's Web Speech API, which primarily functions with an internet connection for robust performance. For true offline/background alerts and Bluetooth/SMS functionality, a native mobile application is required. This demonstration simulates detection and shows a message.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wellness Hub (Phase 2) -->
+        <section id="wellness-hub" class="mb-10 p-6 bg-green-50 rounded-xl shadow-inner-lg transition-opacity duration-500 opacity-0 hidden">
+            <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">Phase 2: Wellness Hub <i class="fas fa-heartbeat ml-2"></i></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Mood Check-in -->
+                <div class="flex flex-col items-center bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-smile text-green-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Mood Check-in</h3>
+                    <p class="text-gray-600 text-center mb-4">How are you feeling today?</p>
+                    <div class="flex space-x-4 mb-4">
+                        <button class="text-4xl hover:scale-110 transition-transform duration-200" title="Happy">😊</button>
+                        <button class="text-4xl hover:scale-110 transition-transform duration-200" title="Neutral">😐</button>
+                        <button class="text-4xl hover:scale-110 transition-transform duration-200" title="Sad">😔</button>
+                        <button class="text-4xl hover:scale-110 transition-transform duration-200" title="Anxious">😟</button>
+                    </div>
+                    <p class="text-sm text-gray-500">Click an emoji to log your mood.</p>
+                </div>
+
+                <!-- Calm Tool -->
+                <div class="flex flex-col items-center bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-spa text-green-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Calm Tool</h3>
+                    <p class="text-gray-600 text-center mb-4">Take a moment to relax and re-center yourself.</p>
+                    <button class="w-full py-3 px-6 bg-teal-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-leaf mr-2"></i> Start Guided Meditation
+                    </button>
+                    <p class="text-sm text-gray-500 mt-2">Simulated: Plays a calming sound/animation.</p>
+                </div>
+
+                <!-- Daily Motivation -->
+                <div class="md:col-span-2 flex flex-col items-center bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-lightbulb text-green-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Daily Motivation</h3>
+                    <p id="motivationQuote" class="text-lg text-gray-700 italic text-center mb-4">
+                        "Believe you can and you're halfway there." - Theodore Roosevelt
+                    </p>
+                    <button id="newQuoteButton" class="py-2 px-5 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-300">
+                        <i class="fas fa-redo-alt mr-2"></i> New Quote
+                    </button>
+                    <p class="text-sm text-gray-500 mt-2">Get inspired every day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Career (Phase 3) -->
+        <section id="community-career" class="mb-10 p-6 bg-purple-50 rounded-xl shadow-inner-lg transition-opacity duration-500 opacity-0 hidden">
+            <h2 class="text-3xl font-bold text-purple-700 mb-6 text-center">Phase 3: Community & Career <i class="fas fa-briefcase ml-2"></i></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Entrepreneur Support Team -->
+                <div class="flex flex-col items-center bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-lightbulb text-purple-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Entrepreneur Support</h3>
+                    <p class="text-gray-600 text-center mb-4">Connect with mentors and resources for your entrepreneurial journey.</p>
+                    <button class="w-full py-3 px-6 bg-purple-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-users mr-2"></i> Find Support
+                    </button>
+                    <p class="text-sm text-purple-500 mt-2 text-center">
+                        <strong class="font-bold">Note:</strong> Real community features require a backend for user profiles and interactions.
+                    </p>
+                </div>
+
+                <!-- Job and Returnship Board -->
+                <div class="flex flex-col items-center bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-suitcase text-purple-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Job & Returnship Board</h3>
+                    <p class="text-gray-600 text-center mb-4">Discover opportunities designed for women, including return-to-work programs.</p>
+                    <button class="w-full py-3 px-6 bg-indigo-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-search mr-2"></i> Browse Listings
+                    </button>
+                    <p class="text-sm text-purple-500 mt-2 text-center">
+                        <strong class="font-bold">Note:</strong> A functional job board requires a database and backend API.
+                    </p>
+                </div>
+
+                <!-- Career Storytelling Platform -->
+                <div class="md:col-span-2 flex flex-col items-center bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-book-open text-purple-600 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Career Storytelling</h3>
+                    <p class="text-gray-600 text-center mb-4">Share and read inspiring career journeys of other women.</p>
+                    <button class="w-full md:w-auto py-3 px-8 bg-purple-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-pencil-alt mr-2"></i> Read Stories
+                    </button>
+                    <p class="text-sm text-purple-500 mt-2 text-center">
+                        <strong class="font-bold">Note:</strong> Storing and displaying stories requires persistent storage via a backend.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Modal for Alerts (Instead of alert()) -->
+    <div id="customModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4" id="modalTitle"></h3>
+            <p class="text-gray-700 mb-6" id="modalMessage"></p>
+            <button onclick="closeModal()" class="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300">
+                OK
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Navigation Logic ---
+        function showSection(sectionId) {
+            const sections = ['safety-zone', 'wellness-hub', 'community-career'];
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (id + '-zone' === sectionId || id === sectionId) { // Adjust for full ID if needed
+                    section.classList.remove('hidden', 'opacity-0');
+                    section.classList.add('block', 'opacity-100');
+                } else {
+                    section.classList.remove('block', 'opacity-100');
+                    section.classList.add('hidden', 'opacity-0');
+                }
+            });
+        }
+
+        // Initially show the safety section
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('safety-zone');
+        });
+
+        // --- Custom Modal Functions (Replaces alert()) ---
+        function showModal(title, message) {
+            const modal = document.getElementById('customModal');
+            const modalContent = document.getElementById('modalContent');
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            modal.classList.remove('hidden');
+            // Animate in
+            setTimeout(() => {
+                modalContent.classList.remove('opacity-0', 'scale-95');
+                modalContent.classList.add('opacity-100', 'scale-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('customModal');
+            const modalContent = document.getElementById('modalContent');
+            // Animate out
+            modalContent.classList.remove('opacity-100', 'scale-100');
+            modalContent.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match CSS transition duration
+        }
+
+
+        // --- Phase 1: Safety Zone Logic ---
+
+        // Sample Emergency Contact
+        const emergencyContact = {
+            name: "Saranya",
+            phone: "8688161699" // Updated to Saranya's number
+        };
+
+        // SOS Button Click
+        document.getElementById('sosButton').addEventListener('click', () => {
+            showModal('SOS Alert', `A simulated SOS alert has been sent to your emergency contact: ${emergencyContact.name} (${emergencyContact.phone})! (Requires backend/native app for actual sending).`);
+        });
+
+        // Live Location Sharing Button Click
+        document.getElementById('locationShareButton').addEventListener('click', () => {
+            showModal('Location Sharing', `Live location sharing initiated with ${emergencyContact.name}! (Requires geolocation permission and backend/native app for actual sharing).`);
+        });
+
+        // SonicSafe (Voice Recognition)
+        const sonicSafeButton = document.getElementById('sonicSafeButton');
+        const sonicSafeOutput = document.getElementById('sonicSafeOutput');
+        const recognitionStatus = document.getElementById('recognitionStatus');
+
+        let recognition;
+        let isListening = false;
+
+        // Check for Web Speech API compatibility
+        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = true; // Keep listening
+            recognition.interimResults = true; // Show results while speaking
+
+            // Event handler for when speech is recognized
+            recognition.onresult = (event) => {
+                let interimTranscript = '';
+                let finalTranscript = '';
+
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript;
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+
+                sonicSafeOutput.innerText = finalTranscript || interimTranscript;
+
+                // Check for keywords to trigger a simulated alert
+                const lowerTranscript = (finalTranscript || interimTranscript).toLowerCase();
+                if (lowerTranscript.includes('help') || lowerTranscript.includes('emergency')) {
+                    showModal('SonicSafe Alert!', `Keyword detected: "${(lowerTranscript.includes('help') ? 'help' : 'emergency')}". A simulated alert has been triggered and sent to ${emergencyContact.name}!`);
+                    recognition.stop(); // Stop listening after alert
+                    isListening = false;
+                    sonicSafeButton.innerText = 'Start Listening';
+                    sonicSafeButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+                    sonicSafeButton.classList.add('bg-purple-600', 'hover:bg-purple-700');
+                    recognitionStatus.innerText = 'Idle';
+                    sonicSafeOutput.innerText = 'Speak "help" or "emergency" to trigger a simulated alert.';
+                }
+            };
+
+            // Event handler for errors
+            recognition.onerror = (event) => {
+                recognitionStatus.innerText = 'Error: ' + event.error;
+                showModal('Voice Recognition Error', `An error occurred: ${event.error}. Please ensure microphone access is granted.`);
+                isListening = false;
+                sonicSafeButton.innerText = 'Start Listening';
+                sonicSafeButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+                sonicSafeButton.classList.add('bg-purple-600', 'hover:bg-purple-700');
+            };
+
+            // Event handler for when recognition ends
+            recognition.onend = () => {
+                if (isListening) { // If it stopped but we want it to be continuous, restart
+                    // This is a common pattern for continuous listening as onend fires after a pause
+                    // However, for a safety app, persistent listening is resource intensive.
+                    // For this demo, we stop explicitly after keyword or if user stops.
+                    recognitionStatus.innerText = 'Listening stopped automatically.';
+                    isListening = false;
+                    sonicSafeButton.innerText = 'Start Listening';
+                    sonicSafeButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+                    sonicSafeButton.classList.add('bg-purple-600', 'hover:bg-purple-700');
+                } else {
+                     recognitionStatus.innerText = 'Idle';
+                     sonicSafeOutput.innerText = 'Speak "help" or "emergency" to trigger a simulated alert.';
+                }
+            };
+
+
+            sonicSafeButton.addEventListener('click', () => {
+                if (isListening) {
+                    recognition.stop();
+                    isListening = false;
+                    sonicSafeButton.innerText = 'Start Listening';
+                    sonicSafeButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+                    sonicSafeButton.classList.add('bg-purple-600', 'hover:bg-purple-700');
+                    recognitionStatus.innerText = 'Idle';
+                    sonicSafeOutput.innerText = 'Speak "help" or "emergency" to trigger a simulated alert.';
+                } else {
+                    try {
+                        recognition.start();
+                        isListening = true;
+                        sonicSafeButton.innerText = 'Stop Listening';
+                        sonicSafeButton.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+                        sonicSafeButton.classList.add('bg-red-600', 'hover:bg-red-700');
+                        recognitionStatus.innerText = 'Listening... (Speak loudly and clearly)';
+                        sonicSafeOutput.innerText = 'Waiting for your speech...';
+                    } catch (e) {
+                        if (e.name === 'AbortError') {
+                            // Recognition already started, ignore
+                            recognitionStatus.innerText = 'Already listening.';
+                        } else if (e.name === 'NotAllowedError') {
+                            showModal('Microphone Access Denied', 'Please allow microphone access in your browser settings to use SonicSafe.');
+                            recognitionStatus.innerText = 'Microphone access denied.';
+                        } else {
+                            recognitionStatus.innerText = 'Error starting recognition: ' + e.message;
+                            showModal('Recognition Error', 'Could not start voice recognition: ' + e.message);
+                        }
+                        isListening = false;
+                        sonicSafeButton.innerText = 'Start Listening';
+                        sonicSafeButton.classList.remove('bg-red-600', 'hover:bg-red-700');
+                        sonicSafeButton.classList.add('bg-purple-600', 'hover:bg-purple-700');
+                    }
+                }
+            });
+
+        } else {
+            sonicSafeButton.disabled = true;
+            sonicSafeButton.innerText = 'Voice Recognition Not Supported';
+            sonicSafeOutput.innerText = 'Your browser does not support the Web Speech API.';
+            recognitionStatus.innerText = 'Feature unavailable.';
+            showModal('Browser Not Supported', 'Your browser does not support Web Speech API for SonicSafe. Please try Chrome or Edge.');
+        }
+
+        // --- Phase 2: Wellness Hub Logic ---
+
+        // Daily Motivation Quotes
+        const quotes = [
+            "Believe you can and you're halfway there. - Theodore Roosevelt",
+            "The best way to predict the future is to create it. - Peter Drucker",
+            "You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "What you get by achieving your goals is not as important as what you become by achieving your goals. - Zig Ziglar",
+            "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt"
+        ];
+
+        document.getElementById('newQuoteButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('motivationQuote').innerText = quotes[randomIndex];
+        });
+
+    </script>
+</body>
+</html>
